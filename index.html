@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Número Secreto</title>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+        <div class="game-container">
+            <h1>Número Secreto</h1>
+            <div class="game-content">
+                <p id="message">Adivina un número del 1 al 20</p>
+                <input type="number" id="guess" min="1" max="20">
+                <button onclick="checkNumber()" id="checkBtn">Verificar</button>
+                <button onclick="resetGame()" id="resetBtn" disabled>Nuevo
+                    Juego</button>
+                <div class="stats">
+                    <p>Intentos: <span id="attempts">0</span></p><br>
+                    <p>Mejor puntuación: <span id="bestScore">-</span></p>
+                </div>
+            </div>
+        </div>
+        <script src="./js/app.js"></script>
+    </body>
+</html>
