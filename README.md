@@ -4,6 +4,11 @@ Un juego interactivo donde debes adivinar un número entre 1 y 20.
 
 ![Vista previa del proyecto](./preview.png)
 
+Este juego fue realizado como práctica de los cursos de Alura Latam y Oracle:
+
+- Lógica de programación: sumérgete en la programación con JavaScript
+- Lógica de programación: explorar funciones y listas
+
 ## 🎮 Características
 
 - Interfaz responsiva
