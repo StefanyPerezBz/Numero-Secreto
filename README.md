@@ -48,7 +48,6 @@ numero-secreto/
 3. **Haz tu primer intento**. Ingresa un número entre 1 y el valor máximo.
 4. El juego te dirá si tu intento fue **demasiado alto** o **demasiado bajo**.
 5. **Sigue adivinando** hasta acertar el número o quedarte sin intentos.
-6. **Intenta superar tu mejor puntuación** (la puntuación se guarda automáticamente).
 
 ## 🎯 Instrucciones para Ejecutar
 
@@ -65,7 +64,7 @@ numero-secreto/
 
 - **Nombre de usuario**: Al iniciar, puedes ingresar tu nombre, que se guarda localmente para que se muestre cada vez que juegues.
 - **Rango personalizable**: Puedes ajustar el número máximo de adivinaciones. El valor predeterminado es 20, pero puedes configurarlo a cualquier valor superior a 5.
-- **Puntuación y progreso**: El juego muestra la cantidad de intentos restantes y actualiza la barra de progreso a medida que adivinas. También se guarda la mejor puntuación, que puedes superar en futuros juegos.
+- **Progreso**: El juego muestra la cantidad de intentos restantes y actualiza la barra de progreso a medida que adivinas.
 
 ## 👤 Autor
 
