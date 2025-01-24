@@ -1,77 +1,129 @@
 let secretNumber;
-let attempts;
-let maxNumber = 20;
-let availableNumbers = [];
+let attemptsLeft;
+let maxNumber;
 let bestScore = localStorage.getItem("bestScore") || "-";
+let userName = localStorage.getItem("userName") || "";
 
-function generateSecretNumber() {
-  if (availableNumbers.length === 0) {
-    availableNumbers = Array.from({ length: maxNumber }, (_, i) => i + 1);
-  }
+// Mostrar alertas
+function showAlert(message, type = "info") {
+    const alertContainer = document.getElementById("alertsContainer");
+    const alert = document.createElement("div");
+    alert.className = `alert ${type}`;
+    alert.textContent = message;
+    alertContainer.appendChild(alert);
 
-  const randomIndex = Math.floor(Math.random() * availableNumbers.length);
-  return availableNumbers.splice(randomIndex, 1)[0];
+    setTimeout(() => {
+        alert.remove();
+    }, 3000);
 }
 
-function updateMessage(text, isSuccess = false) {
-  const message = document.getElementById("message");
-  message.style.backgroundColor = isSuccess ? "#dcfce7" : "#EDF4C2";
-  message.textContent = text;
+// Guardar nombre de usuario
+function saveUserName() {
+    userName = document.getElementById("name").value.trim();
+    if (userName) {
+        localStorage.setItem("userName", userName);
+        showAlert(`¡Bienvenido, ${userName}!`, "success");
+        document.getElementById("startGameBtn").disabled = false;
+    } else {
+        showAlert("Por favor, ingresa tu nombre.", "error");
+    }
 }
 
-function updateElement(id, text) {
-  document.getElementById(id).textContent = text;
+// Generar número secreto
+function generateSecretNumber(max) {
+    return Math.floor(Math.random() * max) + 1;
 }
 
-function checkNumber() {
-  const guess = parseInt(document.getElementById("guess").value);
+// Validar rango máximo
+function validateRange() {
+    const rangeInput = document.getElementById("range");
+    const value = parseInt(rangeInput.value);
 
-  if (!guess || guess < 1 || guess > maxNumber) {
-    updateMessage("¡Ingresa un número válido!");
-    return;
-  }
-
-  attempts++;
-  updateElement("attempts", attempts);
-
-  if (guess === secretNumber) {
-    handleWin();
-  } else {
-    updateMessage(guess > secretNumber ? "¡Muy alto!" : "¡Muy bajo!");
-  }
-
-  document.getElementById("guess").value = "";
+    if (value < 5) {
+        rangeInput.classList.add("error");
+        document.getElementById("startGameBtn").disabled = true;
+        showAlert("El rango mínimo debe ser 5 o mayor.", "error");
+    } else {
+        rangeInput.classList.remove("error");
+        document.getElementById("startGameBtn").disabled = false;
+    }
 }
 
-function handleWin() {
-  updateMessage("¡Felicitaciones! ¡Has ganado! 🎉", true);
-  document.getElementById("checkBtn").disabled = true;
-  document.getElementById("resetBtn").disabled = false;
+// Iniciar juego
+function startGame() {
+    if (!userName) {
+        saveUserName();
+        return;
+    }
 
-  if (bestScore === "-" || attempts < bestScore) {
-    bestScore = attempts;
-    localStorage.setItem("bestScore", bestScore);
-    updateElement("bestScore", bestScore);
-  }
+    const rangeInput = document.getElementById("range");
+    maxNumber = parseInt(rangeInput.value);
+    attemptsLeft = maxNumber * 0.5;
+
+    document.getElementById("rangeDisplay").textContent = maxNumber;
+    document.getElementById("attemptsLeft").textContent = attemptsLeft;
+    document.getElementById("progressBar").value = attemptsLeft;
+    document.getElementById("gameContent").classList.remove("hidden");
+    document.getElementById("settings").classList.add("hidden");
+    document.getElementById("resetBtn").classList.remove("disabled");
+    document.getElementById("resetBtn").disabled = false;
+
+    secretNumber = generateSecretNumber(maxNumber);
+
+    showAlert(`¡Juego iniciado, ${userName}! Adivina el número.`, "success");
 }
 
-function initGame() {
-  secretNumber = generateSecretNumber();
-  attempts = 0;
-  updateElement("attempts", attempts);
-  updateElement("bestScore", bestScore);
-  updateMessage(`Adivina un número del 1 al ${maxNumber}`);
+// Verificar intento
+function checkGuess() {
+    const guessInput = document.getElementById("guess");
+    const guess = parseInt(guessInput.value);
+
+    if (!guess || guess < 1 || guess > maxNumber) {
+        showAlert(`Ingresa un número entre 1 y ${maxNumber}.`, "error");
+        return;
+    }
+
+    attemptsLeft--;
+    document.getElementById("attemptsLeft").textContent = attemptsLeft;
+    document.getElementById("progressBar").value = attemptsLeft;
+
+    if (guess === secretNumber) {
+        showAlert("🎉 ¡Correcto! Has ganado.", "success");
+        if (bestScore === "-" || attemptsLeft > bestScore) {
+            bestScore = attemptsLeft;
+            localStorage.setItem("bestScore", bestScore);
+            document.getElementById("bestScore").textContent = bestScore;
+        }
+        endGame();
+    } else if (attemptsLeft === 0) {
+        showAlert("😞 ¡Has perdido! Se acabaron los intentos.", "error");
+        endGame();
+    } else {
+        showAlert(guess > secretNumber ? "📉 Muy alto." : "📈 Muy bajo.", "info");
+    }
 }
 
+// Terminar juego
+function endGame() {
+    document.getElementById("checkBtn").classList.add("hidden");
+    document.getElementById("resetBtn").classList.remove("disabled");
+    document.getElementById("resetBtn").disabled = false;
+}
+
+// Reiniciar juego
 function resetGame() {
-  document.getElementById("checkBtn").disabled = false;
-  document.getElementById("resetBtn").disabled = true;
-  document.getElementById("guess").value = "";
-  initGame();
+    window.location.href = "/";  // Redirige a la página de inicio
 }
 
-initGame();
+// Inicialización
+if (userName) {
+    document.getElementById("nameField").style.display = "none"; // Ocultar el campo de nombre si ya existe
+}
+validateRange();
 
-document.getElementById("guess").addEventListener("keypress", (e) => {
-  if (e.key === "Enter") checkNumber();
-});
+// Event Listeners
+document.getElementById("name").addEventListener("blur", saveUserName);
+document.getElementById("range").addEventListener("input", validateRange);
+document.getElementById("startGameBtn").addEventListener("click", startGame);
+document.getElementById("checkBtn").addEventListener("click", checkGuess);
+document.getElementById("resetBtn").addEventListener("click", resetGame);
