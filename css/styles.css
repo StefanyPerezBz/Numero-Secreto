@@ -12,7 +12,8 @@ body {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #000000);
-  background-image: url("../assets/fondo.png");
+  background-image: url("../assets/fondo.webp");
+  background-repeat: no-repeat;
   color: #fff;
   text-shadow: 1px 1px 2px #000;
 }
