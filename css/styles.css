@@ -8,27 +8,18 @@
 body {
   font-family: "Press Start 2P", monospace;
   min-height: 100vh;
+  margin: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #000000);
-  background-image: url("../assets/fondo.webp");
+  background-size: 400% 400%;
   background-repeat: no-repeat;
-  color: #fff;
-  text-shadow: 1px 1px 2px #000;
-}
-
-/* Background Animation */
-@keyframes backgroundAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  color: #f0f0f0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  animation: gradientMove 8s ease infinite;
+  scroll-behavior: smooth;
 }
 
 .game-container {
@@ -89,7 +80,7 @@ h1 {
 }
 
 .pixel-btn.disabled {
-  opacity: 1; 
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -137,5 +128,29 @@ h1 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
