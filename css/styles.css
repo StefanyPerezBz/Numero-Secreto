@@ -120,6 +120,17 @@ h1 {
   color: #33ff33;
 }
 
+footer {
+  position: absolute;
+  bottom: 20px;
+  color: #ffffff;
+}
+
+footer a {
+  color: #00ff00;
+  text-decoration: none;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
