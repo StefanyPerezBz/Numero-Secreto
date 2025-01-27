@@ -4,10 +4,14 @@
 
 ![Vista previa del juego](./preview.png)
 
-Este juego fue creado como parte de los cursos de **Alura Latam** y **Oracle**:
+Este juego fue creado como práctica para reforzar los conocimientos obtenidos de los cursos de **Alura Latam** y **Oracle**:
 
 - Lógica de programación: sumérgete en la programación con JavaScript
 - Lógica de programación: explorar funciones y listas
+
+## ⭐​Demo
+
+![Demostracion](assets/demo.gif)
 
 ## 🎮 Características
 
@@ -21,10 +25,15 @@ Este juego fue creado como parte de los cursos de **Alura Latam** y **Oracle**:
 
 Este proyecto utiliza las siguientes tecnologías:
 
+<p align="center">
+  <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML5" width="80"/>
+  <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="CSS3" width="80"/>
+  <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JavaScript" width="80"/>
+</p>
+
 - **HTML5**: Estructura básica del contenido.
-- **CSS**: Estilos visuales y diseño responsivo.
+- **CSS3**: Estilos visuales y diseño responsivo.
 - **JavaScript**: Lógica del juego y manejo de interacciones.
-- **LocalStorage API**: Almacena la mejor puntuación localmente en el navegador.
 
 ## 📂 Estructura del Proyecto
 
@@ -54,7 +63,6 @@ numero-secreto/
 1. Descarga o clona este repositorio en tu máquina local.
 2. Abre el archivo `index.html` en tu navegador.
 3. ¡Disfruta del juego!
-4. Si deseas contribuir o ejecutar el juego en tu propio entorno, primero clona el repositorio:
 
    ```bash
    git clone https://github.com/StefanyPerezBz/Numero-Secreto.git
@@ -71,6 +79,3 @@ numero-secreto/
 Desarrollado por **Stefany Pérez**  
 GitHub: [@StefanyPerezBz](https://github.com/StefanyPerezBz)
 
----
-
-¡Que comience el reto! 🎉
