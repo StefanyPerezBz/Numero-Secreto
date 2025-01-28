@@ -83,10 +83,6 @@ function checkGuess() {
         return;
     }
 
-    attemptsLeft--;
-    document.getElementById("attemptsLeft").textContent = attemptsLeft;
-    document.getElementById("progressBar").value = attemptsLeft;
-
     if (guess === secretNumber) {
         showAlert("🎉 ¡Correcto! Has ganado.", "success");
         if (bestScore === "-" || attemptsLeft > bestScore) {
@@ -95,7 +91,15 @@ function checkGuess() {
             document.getElementById("bestScore").textContent = bestScore;
         }
         endGame();
-    } else if (attemptsLeft === 0) {
+        return;
+    }
+
+    // Decrementar intentos solo si no ha ganado
+    attemptsLeft--;
+    document.getElementById("attemptsLeft").textContent = attemptsLeft;
+    document.getElementById("progressBar").value = attemptsLeft;
+
+    if (attemptsLeft === 0) {
         showAlert("😞 ¡Has perdido! Se acabaron los intentos.", "error");
         endGame();
     } else {
@@ -112,16 +116,15 @@ function endGame() {
 
 // Reiniciar juego
 function resetGame() {
-    window.location.href = "/";  // Redirige a la página de inicio
+    window.location.href = "/"; 
 }
 
 // Inicialización
 if (userName) {
-    document.getElementById("nameField").style.display = "none"; // Ocultar el campo de nombre si ya existe
+    document.getElementById("nameField").style.display = "none"; 
 }
 validateRange();
 
-// Event Listeners
 document.getElementById("name").addEventListener("blur", saveUserName);
 document.getElementById("range").addEventListener("input", validateRange);
 document.getElementById("startGameBtn").addEventListener("click", startGame);
