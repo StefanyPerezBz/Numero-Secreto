@@ -2,16 +2,26 @@
 
 ¡Adivina un número entre 1 y un máximo que puedes configurar! Este es un juego interactivo donde se genera un número secreto y tú debes intentar adivinarlo en la menor cantidad de intentos posibles. ¡Pon a prueba tus habilidades y supera tu mejor puntuación!
 
-![Vista previa del juego](./preview.png)
+<p align="center">
+  <img src="./preview.png" alt="Vista previa del juego" width="400"/>
+</p>
+
+---
 
 Este juego fue creado como práctica para reforzar los conocimientos obtenidos de los cursos de **Alura Latam** y **Oracle**:
 
 - Lógica de programación: sumérgete en la programación con JavaScript
 - Lógica de programación: explorar funciones y listas
 
+---
+
 ## ⭐​Demo
 
-![Demostracion](assets/demo.gif)
+<p align="center">
+  <img src="assets/demo.gif" alt="Demostración del juego" width="400"/>
+</p>
+
+---
 
 ## 🎮 Características
 
@@ -21,19 +31,17 @@ Este juego fue creado como práctica para reforzar los conocimientos obtenidos d
 - **Retroalimentación visual**: Recibe mensajes de "Muy alto" o "Muy bajo" según el número ingresado.
 - **Progreso**: El juego te muestra la barra de progreso.
   
+---
+
 ## 🛠️ Tecnologías
 
-Este proyecto utiliza las siguientes tecnologías:
-
 <p align="center">
-  <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML5" width="80"/>
-  <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="CSS3" width="80"/>
-  <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JavaScript" width="80"/>
+  <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML5" width="80" title="HTML5"/>
+  <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="CSS3" width="80" title="CSS3"/>
+  <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JavaScript" width="80" title="JavaScript"/>
 </p>
 
-- **HTML5**: Estructura básica del contenido.
-- **CSS3**: Estilos visuales y diseño responsivo.
-- **JavaScript**: Lógica del juego y manejo de interacciones.
+---
 
 ## 📂 Estructura del Proyecto
 
@@ -50,6 +58,8 @@ numero-secreto/
 └── README.md
 ```
 
+---
+
 ## 📝 Cómo Jugar
 
 1. **Ingresa tu nombre** (solo la primera vez).
@@ -57,6 +67,8 @@ numero-secreto/
 3. **Haz tu primer intento**. Ingresa un número entre 1 y el valor máximo.
 4. El juego te dirá si tu intento fue **demasiado alto** o **demasiado bajo**.
 5. **Sigue adivinando** hasta acertar el número o quedarte sin intentos.
+
+---
 
 ## 🎯 Instrucciones para Ejecutar
 
@@ -67,12 +79,15 @@ numero-secreto/
    ```bash
    git clone https://github.com/StefanyPerezBz/Numero-Secreto.git
 
+---
 
 ## 📌 Funcionalidades
 
 - **Nombre de usuario**: Al iniciar, puedes ingresar tu nombre, que se guarda localmente para que se muestre cada vez que juegues.
 - **Rango personalizable**: Puedes ajustar el número máximo de adivinaciones. El valor predeterminado es 20, pero puedes configurarlo a cualquier valor superior a 5.
 - **Progreso**: El juego muestra la cantidad de intentos restantes y actualiza la barra de progreso a medida que adivinas.
+
+---
 
 ## 👤 Autor
 
